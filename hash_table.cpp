@@ -111,7 +111,7 @@ bool HashTable::insert(const Key& k, const Value& v){
         arr[hash] = new list<pair<Key, Value>>;
     }
     arr[hash]->push_front(make_pair(k, v));
-    if(arr[hash]->size() > 5){
+    if(current_size/ultimate_size > 0.75){
         resize();
     }
     current_size++;
